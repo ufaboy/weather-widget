@@ -26,7 +26,7 @@ async function getWeather(position: LocationData) {
 
 async function getLocationsData(searchString: string) {
   try {
-    const url = new URL('http://api.openweathermap.org/geo/1.0/direct');
+    const url = new URL('https://api.openweathermap.org/geo/1.0/direct');
     const params = new URLSearchParams();
     params.append('q', searchString);
     params.append('limit', '12');
