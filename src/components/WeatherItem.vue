@@ -36,8 +36,21 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="weatherData" class="weather-item">
-    <div class="flex-row-nowrap justify-between">
+  <div v-if="weatherData" class="weather-item flex-row-nowrap">
+    <div class="weather-img-wrapper">
+      <img :src="getWeatherIconUrl(weatherData)" :alt="getWeatherIconAlt(weatherData)" width="75" height="75" class="weather-img">
+    </div>
+    <div class="flex-column w-full items-center">
+      <b class="text-lg mb-3">{{ weatherData.main.temp }} °C</b>
+      <div class="flex-row-nowrap text-sm">
+        <IconArrowUpRight class="icon mr-1" />
+        {{ weatherData.wind.speed }}m/s {{ degreesToCompass(weatherData.wind.deg) }}
+      </div>
+      <div>
+        <div class="text-bold">{{ weatherData?.name }}, {{ weatherData?.sys.country }}</div>
+      </div>
+    </div>
+<!--     <div class="flex-row-nowrap justify-between">
       <h4 class="text-bold">{{ weatherData?.name }}, {{ weatherData?.sys.country }}</h4>
       <slot></slot>
     </div>
@@ -56,6 +69,6 @@ onMounted(async () => {
       <div class="w-50percent mb-2">Humidity: {{ weatherData.main.humidity }}%</div>
       <div class="w-50percent mb-2">Dew point: {{ '—' }}</div>
       <div>Visibility: {{ weatherData.visibility }}</div>
-    </div>
+    </div> -->
   </div>
 </template>

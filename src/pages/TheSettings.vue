@@ -51,10 +51,10 @@ function dropHandler() {
 
 </script>
 <template>
-    <div class="settings-page ">
+    <div class="settings-page">
         <div class="flex-row-nowrap justify-between mb-4">
             <h4>Settings</h4>
-            <button class="btn-icon" @click="emit('change-page', 'list')">
+            <button class="btn-icon control-btn" @click="emit('change-page', 'list')">
                 <IconCross class="icon" />
             </button>
         </div>

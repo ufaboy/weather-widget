@@ -1,15 +1,33 @@
-:root {}
-
-html,
-body,
-#app {
-    height: 100%;
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-#app {
+.weather-page,
+.settings-page {
     padding: 1rem;
     max-width: 20rem;
+    height: 100%;
+    position: relative;
 }
+.settings-page {
+    background-image: radial-gradient(circle, #bbece1, #006c96);
+    border-radius: 1rem;
+}
+
+.weather-item {
+    /* background-color: #C4E9E5; */
+    background-image: radial-gradient(circle, #bbece1, #006c96);
+    border-radius: 0.5rem;
+}
+
+.weather-img-wrapper {
+    padding: 1rem;
+    border-right: 2px solid #AFD1CE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-img {}
 
 .draggable-li {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -44,12 +62,21 @@ body,
     align-items: center;
 }
 
+.flex-column {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 .justify-center {
     justify-content: center;
 }
 
 .justify-between {
     justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
 }
 
 .text-bold {
@@ -66,6 +93,10 @@ body,
     line-height: 1.25rem;
 }
 
+.text-white {
+    color: white;
+}
+
 .w-4 {
     width: 1rem;
 }
@@ -74,8 +105,13 @@ body,
 .mr-1 {
     margin-right: 0.25rem;
 }
+
 .mr-2 {
     margin-right: 0.5rem;
+}
+
+.mr-5 {
+    margin-right: 1.25rem;
 }
 
 .mb-2 {
@@ -107,10 +143,39 @@ body,
 .cursor-pointer {
     cursor: pointer;
 }
+
 label {
     margin-bottom: 0.25rem;
 }
+
 .search {
     flex: 1;
     padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.location-item {
+    background-color: #afc8c6;
+    border-radius: 0.25rem;
+    padding: 0.75rem 0.25rem;
+    color: black;
+}
+
+.line {
+    width: 1rem;
+    border-bottom: 1px solid;
+    margin-bottom: 0.25rem;
+}
+
+.line:last-of-type {
+    margin-bottom: 0;
+}
+
+.weather-li+.weather-li {
+    margin-top: 1rem;
+}
+.control-btn {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
 }

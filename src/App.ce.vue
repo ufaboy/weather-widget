@@ -16,139 +16,185 @@ currentPage.value = WeatherList
 </template>
 
 <style>
-.weather-page, .settings-page {
-  padding: 1rem;
-  max-width: 20rem;
-  height: 100%
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.weather-page,
+.settings-page {
+    padding: 1rem;
+    max-width: 20rem;
+    height: 100%;
+    position: relative;
+}
+.settings-page {
+    background-image: radial-gradient(circle, #bbece1, #006c96);
+    border-radius: 1rem;
 }
 
+.weather-item {
+    /* background-color: #C4E9E5; */
+    background-image: radial-gradient(circle, #bbece1, #006c96);
+    border-radius: 0.5rem;
+}
+
+.weather-img-wrapper {
+    padding: 1rem;
+    border-right: 2px solid #AFD1CE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-img {}
+
 .draggable-li {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-duration: 150ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 100ms;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 100ms;
 }
 
 .btn-icon {
-  cursor: pointer;
-  border: 0;
-  background-color: inherit;
-  display: flex;
-  align-items: center;
-  padding: 0;
+    cursor: pointer;
+    border: 0;
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    padding: 0;
 }
 
 .icon {
-  width: 1.25rem;
-  height: 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 .flex-row-nowrap {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 }
 
 .flex-row-wrap {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 .justify-center {
-  justify-content: center;
+    justify-content: center;
 }
 
 .justify-between {
-  justify-content: space-between;
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
 }
 
 .text-bold {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
 }
 
 .text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.text-white {
+    color: white;
 }
 
 .w-4 {
-  width: 1rem;
+    width: 1rem;
 }
 
 
 .mr-1 {
-  margin-right: 0.25rem;
+    margin-right: 0.25rem;
 }
 
 .mr-2 {
-  margin-right: 0.5rem;
+    margin-right: 0.5rem;
 }
+
 .mr-5 {
-  margin-right: 1.25rem;
+    margin-right: 1.25rem;
 }
 
 .mb-2 {
-  margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .mb-3 {
-  margin-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .mb-4 {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .w-50percent {
-  width: 50%;
+    width: 50%;
 }
 
 .w-full {
-  width: 100%;
+    width: 100%;
 }
 
 .no-bullets {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 0;
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
 }
 
 .cursor-pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 label {
-  margin-bottom: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 .search {
-  flex: 1;
-  padding: 0.5rem 1rem;
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
 }
+
 .location-item {
-  background-color: #d4d4d4;
-  border-radius: 0.25rem;
-  padding: 0.75rem 0.25rem;
+    background-color: #afc8c6;
+    border-radius: 0.25rem;
+    padding: 0.75rem 0.25rem;
+    color: black;
 }
 
 .line {
-  width: 1rem;
-  border-bottom: 1px solid;
-  margin-bottom: 0.25rem;
+    width: 1rem;
+    border-bottom: 1px solid;
+    margin-bottom: 0.25rem;
 }
 
 .line:last-of-type {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
-.weather-li + .weather-li{
-    margin-top: 2rem;
-    border-color: black;
-    border-top: 1px solid;
+
+.weather-li+.weather-li {
+    margin-top: 1rem;
+}
+.control-btn {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
 }
 </style>
