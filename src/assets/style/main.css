@@ -1,5 +1,5 @@
 .weather-page,
-.settings-page {
+.settings-page-wrapper {
     padding: 1rem;
     max-width: 20rem;
     position: relative;
@@ -9,6 +9,7 @@
 .settings-page {
     background-image: radial-gradient(circle, #bbece1, #006c96);
     border-radius: 1rem;
+    padding: 1rem;
 }
 
 .weather-item {

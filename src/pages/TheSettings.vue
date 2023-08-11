@@ -51,28 +51,31 @@ function dropHandler() {
 
 </script>
 <template>
-    <div class="settings-page">
-        <div class="flex-row-nowrap justify-between mb-4">
-            <h4>Settings</h4>
-            <button class="btn-icon control-btn" @click="emit('change-page', 'list')">
-                <IconCross class="icon" />
-            </button>
+    <div class="settings-page-wrapper">
+        <div class="settings-page">
+            <div class="flex-row-nowrap justify-between mb-4">
+                <h4>Settings</h4>
+                <button class="btn-icon control-btn" @click="emit('change-page', 'list')">
+                    <IconCross class="icon" />
+                </button>
+            </div>
+            <ol class="no-bullets">
+                <li v-for="(loc, index) in locations" class="draggable-li mb-3" :draggable="draggedItemIndex === index"
+                    @dragstart="dragStartHandler(index)" @dragover="dragoverHandler(index)" @drop="dropHandler"
+                    @dragend="dropHandler">
+                    <LocationItem @delete="deleteLocation(index)" @start-drag="draggedItemIndex = index">
+                        {{ loc.city }}, {{ loc.country }}
+                    </LocationItem>
+                </li>
+            </ol>
+            <form @submit.prevent="findAndAddLocation" class="flex-row-wrap">
+                <label class="w-full">Add location</label>
+                <input type="search" class="search mr-2 px-4 py-2" placeholder="New York" v-model="searchString">
+                <button type="button" class="btn-icon" @click="findAndAddLocation">
+                    <IconEnter class="icon" />
+                </button>
+            </form>
         </div>
-        <ol class="no-bullets">
-            <li v-for="(loc, index) in locations" class="draggable-li mb-3" :draggable="draggedItemIndex === index"
-                @dragstart="dragStartHandler(index)" @dragover="dragoverHandler(index)" @drop="dropHandler"
-                @dragend="dropHandler">
-                <LocationItem @delete="deleteLocation(index)" @start-drag="draggedItemIndex = index">
-                    {{ loc.city }}, {{ loc.country }}
-                </LocationItem>
-            </li>
-        </ol>
-        <form @submit.prevent="findAndAddLocation" class="flex-row-wrap">
-            <label class="w-full">Add location</label>
-            <input type="search" class="search mr-2 px-4 py-2" placeholder="New York" v-model="searchString">
-            <button type="button" class="btn-icon" @click="findAndAddLocation">
-                <IconEnter class="icon" />
-            </button>
-        </form>
+
     </div>
 </template>
