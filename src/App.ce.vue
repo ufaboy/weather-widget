@@ -37,7 +37,6 @@ currentPage.value = WeatherList
 
 .weather-img-wrapper {
   padding: 1rem;
-  border-right: 2px solid #AFD1CE;
   display: flex;
   justify-content: center;
   align-items: center;
