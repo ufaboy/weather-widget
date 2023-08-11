@@ -14,5 +14,3 @@ currentPage.value = WeatherList
 <template>
   <component :is="currentPage" @change-page="changePage" />
 </template>
-
-<style></style>
