@@ -42,7 +42,13 @@ currentPage.value = WeatherList
   justify-content: center;
   align-items: center;
 }
-
+.weather-info {
+    border-left: 2px solid #AFD1CE;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+}
 .weather-img {}
 
 .draggable-li {
