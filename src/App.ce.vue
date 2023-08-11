@@ -26,7 +26,7 @@ currentPage.value = WeatherList
 
 .settings-page {
     background-image: radial-gradient(circle, #bbece1, #006c96);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 1rem;
 }
 
