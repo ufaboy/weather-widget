@@ -30,18 +30,14 @@ onMounted(() => {
 
 </script>
 <template>
-    <div class="relative">
-        <ul>
-            <li v-for="(location, index) in locations" class="mb-8 last:mb-0 border-b">
-                <WeatherItem :location="location" @update="updateLocation($event, index)">
-                    <template v-if="index === 0">
-                        <button class="" @click="emit('change-page', 'settings')">
-                            <IconGear class="w-5 h-5" />
-                        </button>
-                    </template>
-                </WeatherItem>
-            </li>
-        </ul>
-
+    <div class="weather-page">
+        <WeatherItem v-for="(location, index) in locations" class="weather-li mb-4" :location="location"
+            @update="updateLocation($event, index)">
+            <template v-if="index === 0">
+                <button class="btn-icon" @click="emit('change-page', 'settings')">
+                    <IconGear class="icon" />
+                </button>
+            </template>
+        </WeatherItem>
     </div>
 </template>

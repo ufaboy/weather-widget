@@ -42,14 +42,6 @@ function dragoverHandler(index: number) {
         locations.value.splice(index, 0, draggedItem);
         draggedItemIndex.value = index;
     }
-    /*     const elements = document.querySelectorAll(
-        '.draggable-li')
-        elements.forEach(function (item) {
-            item.classList.remove('translate-y-6');
-        });
-        const target = event.target as HTMLElement
-        target.classList.add('translate-y-6')
-        console.log({ 'dragoverHandler': event }); */
 }
 function dropHandler() {
     console.log('dropHandler');
@@ -59,27 +51,28 @@ function dropHandler() {
 
 </script>
 <template>
-    <div class="flex flex-row justify-between mb-4">
-        <h2>Settings</h2>
-        <button class="" @click="emit('change-page', 'list')">
-            <IconCross class="w-5 h-5" />
-        </button>
+    <div class="settings-page ">
+        <div class="flex-row-nowrap justify-between mb-4">
+            <h4>Settings</h4>
+            <button class="btn-icon" @click="emit('change-page', 'list')">
+                <IconCross class="icon" />
+            </button>
+        </div>
+        <ol class="no-bullets">
+            <li v-for="(loc, index) in locations" class="draggable-li mb-3" :draggable="draggedItemIndex === index"
+                @dragstart="dragStartHandler(index)" @dragover="dragoverHandler(index)" @drop="dropHandler"
+                @dragend="dropHandler">
+                <LocationItem @delete="deleteLocation(index)" @start-drag="draggedItemIndex = index">
+                    {{ loc.city }}, {{ loc.country }}
+                </LocationItem>
+            </li>
+        </ol>
+        <form @submit.prevent="findAndAddLocation" class="flex-row-wrap">
+            <label class="w-full">Add location</label>
+            <input type="search" class="search mr-2 px-4 py-2" placeholder="New York" v-model="searchString">
+            <button type="button" class="btn-icon" @click="findAndAddLocation">
+                <IconEnter class="icon" />
+            </button>
+        </form>
     </div>
-    <ol>
-        <li v-for="(loc, index) in locations" class="draggable-li mb-3 transition ease-in-out delay-100"
-            :draggable="draggedItemIndex === index" @dragstart="dragStartHandler(index)"
-            @dragover="dragoverHandler(index)" @drop="dropHandler" @dragend="dropHandler">
-            <LocationItem @delete="deleteLocation(index)" @start-drag="draggedItemIndex = index">
-                {{ loc.city }}, {{ loc.country }}
-            </LocationItem>
-        </li>
-    </ol>
-
-    <form @submit.prevent="findAndAddLocation" class="flex flex-row flex-wrap justify-between items-center">
-        <label class="w-full">Add location</label>
-        <input type="search" class="border rounded flex-1 mr-2 px-4 py-2" placeholder="New York" v-model="searchString">
-        <button type="button" class="w-1/5" @click="findAndAddLocation">
-            <IconEnter />
-        </button>
-    </form>
 </template>

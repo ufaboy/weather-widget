@@ -5,7 +5,7 @@ import { getWeather } from '../utils/api';
 import { WeatherResponse } from '../interfaces/Weather';
 import IconArrowUpRight from './IconArrowUpRight.vue'
 import IconPressure from './IconPressure.vue'
-import {degreesToCompass} from '../utils/geo'
+import { degreesToCompass } from '../utils/geo'
 
 const props = defineProps<{
   location: LocationData
@@ -36,25 +36,25 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="weatherData" class="pb-3">
-    <div class="flex flex-row flex-nowrap justify-between items-center">
-      <h2 class="font-bold">{{ weatherData?.name }}, {{ weatherData?.sys.country }}</h2>
+  <div v-if="weatherData" class="weather-item">
+    <div class="flex-row-nowrap justify-between">
+      <h4 class="text-bold">{{ weatherData?.name }}, {{ weatherData?.sys.country }}</h4>
       <slot></slot>
     </div>
-    <div class="flex flex-row justify-center items-center">
+    <div class="flex-row-nowrap justify-center">
       <img :src="getWeatherIconUrl(weatherData)" :alt="getWeatherIconAlt(weatherData)" class="mr-5">
       <b class="text-lg">{{ weatherData.main.temp }}</b>
     </div>
-    <div class="text-sm">{{ getWeatherSummary(weatherData) }}</div>
-    <div class="flex flex-row flex-wrap">
-      <div class="w-1/2 flex flex-row items-center">
-        <IconArrowUpRight class="w-4 mr-1" />{{ weatherData.wind.speed }}m/s {{ degreesToCompass(weatherData.wind.deg)}}
+    <div class="text-sm mb-3">{{ getWeatherSummary(weatherData) }}</div>
+    <div class="flex-row-wrap">
+      <div class="w-50percent flex-row-nowrap mb-2">
+        <IconArrowUpRight class="icon mr-1" />{{ weatherData.wind.speed }}m/s {{ degreesToCompass(weatherData.wind.deg) }}
       </div>
-      <div class="w-1/2 flex flex-row items-center">
-        <IconPressure class="w-4 mr-1" />{{ weatherData.main.pressure }}hPa
+      <div class="w-50percent flex-row-nowrap mb-2">
+        <IconPressure class="icon mr-1" />{{ weatherData.main.pressure }}hPa
       </div>
-      <div class="w-1/2">Humidity: {{ weatherData.main.humidity }}%</div>
-      <div class="w-1/2">Dew point: {{ '—' }}</div>
+      <div class="w-50percent mb-2">Humidity: {{ weatherData.main.humidity }}%</div>
+      <div class="w-50percent mb-2">Dew point: {{ '—' }}</div>
       <div>Visibility: {{ weatherData.visibility }}</div>
     </div>
   </div>
