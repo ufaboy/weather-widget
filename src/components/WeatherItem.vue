@@ -40,7 +40,7 @@ onMounted(async () => {
     <div class="weather-img-wrapper">
       <img :src="getWeatherIconUrl(weatherData)" :alt="getWeatherIconAlt(weatherData)" width="75" height="75" class="weather-img">
     </div>
-    <div class="flex-column w-full items-center">
+    <div class="weather-info ">
       <b class="text-lg p-3">{{ weatherData.main.temp }} °C</b>
       <div class="flex-row-nowrap text-xs">
         <IconArrowUpRight class="icon mr-1" />
