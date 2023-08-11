@@ -13,7 +13,6 @@
 }
 
 .weather-item {
-    /* background-color: #C4E9E5; */
     background-image: radial-gradient(circle, #bbece1, #006c96);
     border-radius: 0.5rem;
 }
@@ -31,7 +30,6 @@
     align-items: center;
     width: 100%;
 }
-.weather-img {}
 
 .draggable-li {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;

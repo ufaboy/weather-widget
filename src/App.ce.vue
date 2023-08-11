@@ -17,29 +17,29 @@ currentPage.value = WeatherList
 
 <style>
 .weather-page,
-.settings-page {
-  padding: 1rem;
-  max-width: 20rem;
-  position: relative;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.settings-page-wrapper {
+    padding: 1rem;
+    max-width: 20rem;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .settings-page {
-  background-image: radial-gradient(circle, #bbece1, #006c96);
-  border-radius: 1rem;
+    background-image: radial-gradient(circle, #bbece1, #006c96);
+    border-radius: 1rem;
+    padding: 1rem;
 }
 
 .weather-item {
-  /* background-color: #C4E9E5; */
-  background-image: radial-gradient(circle, #bbece1, #006c96);
-  border-radius: 0.5rem;
+    background-image: radial-gradient(circle, #bbece1, #006c96);
+    border-radius: 0.5rem;
 }
 
 .weather-img-wrapper {
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .weather-info {
     border-left: 2px solid #AFD1CE;
@@ -48,7 +48,6 @@ currentPage.value = WeatherList
     align-items: center;
     width: 100%;
 }
-.weather-img {}
 
 .draggable-li {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
