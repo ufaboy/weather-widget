@@ -1,13 +1,14 @@
 html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .weather-page,
 .settings-page {
     padding: 1rem;
     max-width: 20rem;
-    height: 100%;
     position: relative;
 }
+
 .settings-page {
     background-image: radial-gradient(circle, #bbece1, #006c96);
     border-radius: 1rem;
@@ -174,8 +175,58 @@ label {
 .weather-li+.weather-li {
     margin-top: 1rem;
 }
+
 .control-btn {
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
+}
+
+.control-btn:hover {
+    animation: rotate-center 0.3s ease-in-out both;
+    border: 1px solid;
+	border-radius: 50%;
+}
+
+.btn-trash:hover {
+    animation: wobble-hor-bottom 0.4s both;
+}
+
+@keyframes rotate-center {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wobble-hor-bottom {
+
+    0%,
+    100% {
+        transform: translateX(0%);
+        transform-origin: 50% 50%;
+    }
+
+    15% {
+        transform: translateX(-7px) rotate(-6deg);
+    }
+
+    30% {
+        transform: translateX(3px) rotate(6deg);
+    }
+
+    45% {
+        transform: translateX(-3px) rotate(-3.6deg);
+    }
+
+    60% {
+        transform: translateX(2px) rotate(2.4deg);
+    }
+
+    75% {
+        transform: translateX(-1px) rotate(-1.2deg);
+    }
 }

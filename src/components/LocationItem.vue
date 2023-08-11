@@ -19,7 +19,7 @@ const emit = defineEmits<{
     <div>
       <slot></slot>
     </div>
-    <button class="btn-icon" @click="$emit('delete')">
+    <button class="btn-icon btn-trash" @click="$emit('delete')">
       <IconTrash class="icon" />
     </button>
   </div>
