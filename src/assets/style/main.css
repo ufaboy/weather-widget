@@ -1,12 +1,9 @@
-html {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .weather-page,
 .settings-page {
     padding: 1rem;
     max-width: 20rem;
     position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .settings-page {
@@ -185,7 +182,7 @@ label {
 .control-btn:hover {
     animation: rotate-center 0.3s ease-in-out both;
     border: 1px solid;
-	border-radius: 50%;
+    border-radius: 50%;
 }
 
 .btn-trash:hover {

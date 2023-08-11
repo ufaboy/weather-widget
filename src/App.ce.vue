@@ -16,15 +16,12 @@ currentPage.value = WeatherList
 </template>
 
 <style>
-html {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .weather-page,
 .settings-page {
   padding: 1rem;
   max-width: 20rem;
   position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .settings-page {
