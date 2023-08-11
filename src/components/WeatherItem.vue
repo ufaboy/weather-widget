@@ -18,7 +18,7 @@ const weatherData = ref<WeatherResponse>()
 
 function getWeatherIconUrl(data: WeatherResponse) {
   const weather = data.weather.length ? data.weather[0] : undefined
-  return weather ? `http://openweathermap.org/img/w/${weather?.icon}.png` : ''
+  return weather ? `https://openweathermap.org/img/w/${weather?.icon}.png` : ''
 }
 function getWeatherIconAlt(data: WeatherResponse) {
   const weather = data.weather.length ? data.weather[0] : undefined
@@ -41,14 +41,15 @@ onMounted(async () => {
       <img :src="getWeatherIconUrl(weatherData)" :alt="getWeatherIconAlt(weatherData)" width="75" height="75" class="weather-img">
     </div>
     <div class="flex-column w-full items-center">
-      <b class="text-lg mb-3">{{ weatherData.main.temp }} °C</b>
-      <div class="flex-row-nowrap text-sm">
+      <b class="text-lg p-3">{{ weatherData.main.temp }} °C</b>
+      <div class="flex-row-nowrap text-xs">
         <IconArrowUpRight class="icon mr-1" />
         {{ weatherData.wind.speed }}m/s {{ degreesToCompass(weatherData.wind.deg) }}
       </div>
-      <div>
-        <div class="text-bold">{{ weatherData?.name }}, {{ weatherData?.sys.country }}</div>
+      <div class="flex-row-nowrap">
+        <div class="text-xs px-3">{{ getWeatherSummary(weatherData) }}</div>
       </div>
+      <div class="text-bold p-3">{{ weatherData?.name }}, {{ weatherData?.sys.country }}</div>
     </div>
 <!--     <div class="flex-row-nowrap justify-between">
       <h4 class="text-bold">{{ weatherData?.name }}, {{ weatherData?.sys.country }}</h4>

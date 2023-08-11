@@ -109,6 +109,11 @@ currentPage.value = WeatherList
   line-height: 1.25rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .text-white {
   color: white;
 }
@@ -140,6 +145,10 @@ currentPage.value = WeatherList
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.p-3 {
+    padding: 0.75rem;
 }
 
 .w-50percent {
@@ -200,7 +209,7 @@ label {
 .control-btn:hover {
   animation: rotate-center 0.3s ease-in-out both;
   border: 1px solid;
-	border-radius: 50%;
+  border-radius: 50%;
 }
 
 .btn-trash:hover {
@@ -218,25 +227,30 @@ label {
 }
 
 @keyframes wobble-hor-bottom {
-    0%,
-    100% {
-      transform: translateX(0%);
-      transform-origin: 50% 50%;
-    }
-    15% {
-      transform: translateX(-7px) rotate(-6deg);
-    }
-    30% {
-      transform: translateX(3px) rotate(6deg);
-    }
-    45% {
-      transform: translateX(-3px) rotate(-3.6deg);
-    }
-    60% {
-      transform: translateX(2px) rotate(2.4deg);
-    }
-    75% {
-      transform: translateX(-1px) rotate(-1.2deg);
-    }
+
+  0%,
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
   }
-  </style>
+
+  15% {
+    transform: translateX(-7px) rotate(-6deg);
+  }
+
+  30% {
+    transform: translateX(3px) rotate(6deg);
+  }
+
+  45% {
+    transform: translateX(-3px) rotate(-3.6deg);
+  }
+
+  60% {
+    transform: translateX(2px) rotate(2.4deg);
+  }
+
+  75% {
+    transform: translateX(-1px) rotate(-1.2deg);
+  }
+}</style>
