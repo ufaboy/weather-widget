@@ -10,17 +10,17 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="flex flex-row justify-between items-center bg-gray-300 rounded px-3 py-1">
+  <div class="location-item flex-row-wrap justify-between bg-gray-300 rounded px-3 py-1">
     <div class="cursor-pointer" @mousedown="$emit('start-drag')" @mouseup="$emit('stop-drag')">
-      <div class="w-4 border-b border-black mb-1 "></div>
-      <div class="w-4 border-b border-black mb-1"></div>
-      <div class="w-4 border-b border-black "></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
     </div>
     <div>
       <slot></slot>
     </div>
-    <button @click="$emit('delete')">
-      <IconTrash class="w-4 h-4" />
+    <button class="btn-icon" @click="$emit('delete')">
+      <IconTrash class="icon" />
     </button>
   </div>
 </template>

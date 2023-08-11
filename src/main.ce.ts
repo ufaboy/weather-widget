@@ -1,15 +1,12 @@
-import { defineCustomElement } from 'vue'
+import { defineCustomElement } from 'vue';
+import AppSFC from './App.ce.vue';
 
-// vue SFC
-import AppSFC from './App.vue'
+export const App = defineCustomElement(AppSFC);
 
-// turn component into web components
-export const App = defineCustomElement(AppSFC)
-customElements.define('weather-widget', App)
+customElements.define('weather-widget', App);
 
-// register global typings
 declare module 'vue' {
   export interface GlobalComponents {
-    'App': typeof App,
+    App: typeof App;
   }
 }
