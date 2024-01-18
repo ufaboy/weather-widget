@@ -13,7 +13,7 @@ const emit = defineEmits<{
 const locations = ref<LocationData[]>(loadLocationsFromStorage())
 
 function errorPositionHandler() {
-    console.error('errorPositionHandler');
+    locations.value.push({ latitude: 41.9028, longitude: 12.4964 })
 }
 function updateLocation(event: WeatherResponse, index: number) {
     locations.value[index] = { city: event.name, country: event.sys.country, latitude: event.coord.lat, longitude: event.coord.lon }

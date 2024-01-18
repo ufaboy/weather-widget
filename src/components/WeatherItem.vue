@@ -27,7 +27,7 @@ function getWeatherSummary(data: WeatherResponse) {
   return `Feels like ${data.main.feels_like}, ${data.weather[0].description}`;
 }
 onMounted(async () => {
-  weatherData.value = await getWeather<LocationData>(props.location);
+  weatherData.value = await getWeather<WeatherResponse>(props.location);
   if (weatherData.value) {
     emit('update', weatherData.value);
   }
@@ -59,8 +59,5 @@ onMounted(async () => {
         {{ weatherData?.name }}, {{ weatherData?.sys.country }}
       </div>
     </div>
-  </div>
-  <div v-else id="fallback" class="">
-    Pls
   </div>
 </template>
