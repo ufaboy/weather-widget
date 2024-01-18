@@ -1,8 +1,7 @@
 import { LocationData, GeoData } from '../interfaces/Geo';
 import { WeatherResponse } from '../interfaces/Weather';
 
-async function getWeather(position: LocationData) {
-  try {
+async function getWeather<T>(position: LocationData): Promise<T> {
     const { latitude, longitude, city } = position;
     const url = new URL('https://api.openweathermap.org/data/2.5/weather');
     const params = new URLSearchParams();
@@ -17,15 +16,10 @@ async function getWeather(position: LocationData) {
     params.append('appid', import.meta.env.VITE_APP_ID);
     url.search = params.toString();
     const response = await fetch(url);
-    const data = await response.json();
-    return data as WeatherResponse;
-  } catch (error) {
-    console.error('getWeatherByPosition error', error);
-  }
+    return await response.json();
 }
 
-async function getLocationsData(searchString: string) {
-  try {
+async function getLocationsData<T>(searchString: string): Promise<T> {
     const url = new URL('https://api.openweathermap.org/geo/1.0/direct');
     const params = new URLSearchParams();
     params.append('q', searchString);
@@ -33,10 +27,7 @@ async function getLocationsData(searchString: string) {
     params.append('appid', import.meta.env.VITE_APP_ID);
     url.search = params.toString();
     const response = await fetch(url);
-    return (await response.json()) as GeoData[];
-  } catch (error) {
-    console.error('getLocationsData error', error);
-  }
+    return await response.json();
 }
 
 export { getWeather, getLocationsData };

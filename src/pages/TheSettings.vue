@@ -4,7 +4,7 @@ import LocationItem from '../components/LocationItem.vue'
 import IconCross from '../components/IconCross.vue';
 import { saveLocationsFromStorage, loadLocationsFromStorage } from '../utils/storage'
 import { getLocationsData } from '../utils/api'
-import { LocationData } from '../interfaces/Geo'
+import { GeoData, LocationData } from '../interfaces/Geo'
 import IconEnter from '../components/IconEnter.vue';
 
 const emit = defineEmits(['change-page'])
@@ -15,7 +15,7 @@ const searchString = ref('')
 const draggedItemIndex = ref<number | null>(null)
 
 async function findAndAddLocation() {
-    const result = await getLocationsData(searchString.value)
+    const result = await getLocationsData<Array<GeoData>>(searchString.value)
     if (result) {
         const loc = result[0]
         locations.value.push({
