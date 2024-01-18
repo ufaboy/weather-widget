@@ -154,6 +154,9 @@ currentPage.value = WeatherList
 .p-3 {
     padding: 0.75rem;
 }
+.px-3 {
+    padding: 0.75rem;
+}
 
 .w-50percent {
   width: 50%;
